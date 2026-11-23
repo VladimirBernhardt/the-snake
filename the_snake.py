@@ -45,22 +45,16 @@ class GameObject():
     класс GameObject от которого наследуются змейка и яблоко
     содержит позицию и цвет
     """
-
     def __init__(self, position, body_color):
         self.position = position
         self.body_color = body_color
 
-    def draw(self):
-        pass
-
 
 class Apple(GameObject):
     """класс яблоко"""
-
     def __init__(self):
         super().__init__(self.randomize_position(), APPLE_COLOR)
     """Инициализирует игровой объект."""
-
     def draw(self):
         """отрисовка яблока"""
         rect = pygame.Rect(self.position, (GRID_SIZE, GRID_SIZE))
@@ -76,7 +70,6 @@ class Apple(GameObject):
 
 class Snake(GameObject):
     """класс змейки"""
-
     def __init__(self,
                  positions,
                  body_color,
@@ -95,7 +88,6 @@ class Snake(GameObject):
 
     def draw(self):
         """Отрисовка змейки"""
-
         for position in self.positions:
             rect = (pygame.Rect(position, (GRID_SIZE, GRID_SIZE)))
             pygame.draw.rect(screen, self.body_color, rect)
@@ -113,19 +105,16 @@ class Snake(GameObject):
 
     def update_direction(self):
         """обновляет направление движения """
-
         if self.next_direction:
             self.direction = self.next_direction
             self.next_direction = None
 
     def get_head_position(self):
         """возвращает координаты головы змейки"""
-
         return self.positions[0]
 
     def move(self):
         """метод движения змейки"""
-
         head = self.get_head_position()
 
         new_head = (
@@ -144,7 +133,6 @@ class Snake(GameObject):
         перезапуск игры и удаления всех сегметов змейки
         кроме головы при столкновения с собой
         """
-
         self.direction = RIGHT
         self.next_direction = None
         self.last = None
@@ -156,7 +144,6 @@ class Snake(GameObject):
 
 def handle_keys(game_object):
     """проверка нажатия клавиш"""
-
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
@@ -174,7 +161,6 @@ def handle_keys(game_object):
 
 def draw_board_cells():
     """отрисовка обводки клеток поля"""
-
     for cell_of_width in range(GRID_WIDTH):
         for cell_of_height in range(GRID_HEIGHT):
             rect = pygame.Rect(
@@ -186,7 +172,6 @@ def draw_board_cells():
 
 def main():
     """главная функция с игровой логикой"""
-
     # Инициализация PyGame:
     pygame.init()
     # Тут нужно создать экземпляры классов.
