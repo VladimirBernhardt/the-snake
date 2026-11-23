@@ -107,7 +107,7 @@ class Snake(GameObject):
             pygame.draw.rect(screen, BOARD_BACKGROUND_COLOR, last_rect)
 
     def update_direction(self):
-        """обновляет направление движения """
+        """обновляет направление движения"""
         if self.next_direction:
             self.direction = self.next_direction
             self.next_direction = None
