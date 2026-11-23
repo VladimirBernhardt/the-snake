@@ -45,6 +45,7 @@ class GameObject():
     класс GameObject от которого наследуются змейка и яблоко
     содержит позицию и цвет
     """
+
     def __init__(self, position, body_color):
         self.position = position
         self.body_color = body_color
@@ -52,6 +53,7 @@ class GameObject():
 
 class Apple(GameObject):
     """класс яблоко"""
+
     def __init__(self):
         super().__init__(self.randomize_position(), APPLE_COLOR)
     """Инициализирует игровой объект."""
@@ -70,6 +72,7 @@ class Apple(GameObject):
 
 class Snake(GameObject):
     """класс змейки"""
+
     def __init__(self,
                  positions,
                  body_color,
