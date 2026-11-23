@@ -46,9 +46,13 @@ class GameObject():
     содержит позицию и цвет
     """
 
-    def __init__(self, position, body_color):
+    def __init__(self, position=(0, 0), body_color=(0, 0, 0)):
         self.position = position
         self.body_color = body_color
+
+    def draw(self):
+        """Метод отрисовки игрового объекта."""
+        pass
 
 
 class Apple(GameObject):
@@ -74,14 +78,19 @@ class Snake(GameObject):
     """класс змейки"""
 
     def __init__(self,
-                 positions,
-                 body_color,
-                 direction,
-                 next_direction,
-                 last,
+                 positions=None,
+                 body_color=SNAKE_COLOR,
+                 direction=RIGHT,
+                 next_direction=None,
+                 last=None,
                  length=1
                  ):
         """Инициализирует игровой объект."""
+        if positions is None:
+            positions = [(320, 240)]
+
+        super().__init__(positions[0], body_color)
+
         self.length = length
         self.positions = positions
         self.direction = direction
@@ -131,6 +140,8 @@ class Snake(GameObject):
         else:
             self.last = None
 
+        self.position = new_head
+
     def reset(self):
         """
         перезапуск игры и удаления всех сегметов змейки
@@ -139,7 +150,7 @@ class Snake(GameObject):
         self.direction = RIGHT
         self.next_direction = None
         self.last = None
-        self.positions[0] = 320, 240
+        self.positions[0] = [(320, 240)]
         self.length = 1
         while len(self.positions) > 1:
             self.positions.pop()
