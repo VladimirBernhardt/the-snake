@@ -1,4 +1,4 @@
-from random import randint, choice
+from random import randint
 
 import pygame 
 
@@ -66,7 +66,6 @@ class Apple(GameObject):
                  occupied_positions=(CENTER_OF_SCREEN,)
                  ):
         """Инициализирует игровой объект."""
-
         super().__init__(position, body_color)
         self.randomize_position(occupied_positions)
 
