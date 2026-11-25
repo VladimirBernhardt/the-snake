@@ -56,6 +56,8 @@ class GameObject:
         pygame.draw.rect(screen, self.body_color, rect)
         pygame.draw.rect(screen, BORDER_COLOR, rect, 1)
 
+    def draw(self):
+        """метод отрисовки обьектов"""
 
 class Apple(GameObject):
     """класс яблоко"""
