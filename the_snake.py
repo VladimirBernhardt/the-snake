@@ -59,6 +59,7 @@ class GameObject:
     def draw(self):
         """метод отрисовки обьектов"""
 
+
 class Apple(GameObject):
     """класс яблоко"""
 
