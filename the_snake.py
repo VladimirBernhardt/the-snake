@@ -1,6 +1,6 @@
-import pygame
-
 from random import randint
+
+import pygame
 
 # Константы для размеров поля и сетки:
 SCREEN_WIDTH, SCREEN_HEIGHT = 640, 480
@@ -135,7 +135,6 @@ class Snake(GameObject):
         """
         self.direction = RIGHT
         self.next_direction = None
-        self.last = None
         self.positions = [(320, 240)]
         self.length = 1
 
