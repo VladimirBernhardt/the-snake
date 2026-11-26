@@ -46,8 +46,8 @@ clock = pygame.time.Clock()
 class GameObject:
     """класс GameObject"""
 
-    def __init__(self, position=CENTER_OF_SCREEN, body_color=BLACK_COLOR):
-        self.position = position
+    def __init__(self, body_color=BLACK_COLOR):
+        self.position = CENTER_OF_SCREEN
         self.body_color = body_color
 
     def draw_cell(self, position):
@@ -64,12 +64,11 @@ class Apple(GameObject):
     """класс яблоко"""
 
     def __init__(self,
-                 position=CENTER_OF_SCREEN,
                  body_color=APPLE_COLOR,
                  occupied_positions=(CENTER_OF_SCREEN,)
                  ):
         """Инициализирует игровой объект."""
-        super().__init__(position, body_color)
+        super().__init__(body_color)
         self.randomize_position(occupied_positions)
 
     def draw(self):
@@ -93,13 +92,11 @@ class Snake(GameObject):
                  body_color=SNAKE_COLOR,
                  ):
         """Инициализирует игровой объект."""
-        self.positions = [CENTER_OF_SCREEN]
-        super().__init__(self.positions[0], body_color)
+        super().__init__(body_color)
+        self.positions = [self.position]
         self.length = 1
-
         self.direction = RIGHT
         self.next_direction = None
-        self.body_color = body_color
 
     def draw(self):
         """Отрисовка змейки"""
@@ -138,7 +135,7 @@ class Snake(GameObject):
         """
         self.direction = RIGHT
         self.next_direction = None
-        self.positions = [(320, 240)]
+        self.positions = [self.position]
         self.length = 1
 
 
